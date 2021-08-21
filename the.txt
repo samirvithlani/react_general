@@ -1,0 +1,47 @@
+						REACT JS
+Framework :
+
+		
+Library   :
+
+
+modules:-
+
+----------------------------------------------------------------------------------------
+
+archticture
+
+monolothic arch
+
+modulor arch
+
+EmployeeMan
+
+search  elasticSearch -->  
+-----------------------------------------------------------------------------------------
+
+Node js:
+-----------------------------------------------------------------------------------------
+What is js ???
+??
+--------
+
+NPM  --> npm node pac manager -->
+NPX  --> NPX  -->node pack ex
+----------------------
+
+SPA -->single page application.......
+-------------------------------------
+Advantage:-- 
+-------------------------------------
+Folder Structure
+
+D: Projects-->learning->react --> git hub
+-----------------------------------------
+how to create React Project ....
+----------->
+npx create-react-app yourappname
+
+
+
+map
