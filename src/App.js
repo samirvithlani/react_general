@@ -16,98 +16,25 @@ import { UserDetail } from './api/User-Detail';
 import { AddUser } from './api/Add-User';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { createContext } from 'react'
+import { Child } from './Child';
 
 //add validation...
 
+//Employebean emp =new Employebean()
+//emp.
+
+export const GlobalInfo = createContext();
+
 function App() {
-    const [users, setusers] = useState([])
-    const [isLoading, setisLoading] = useState(false)
-    const [isError, setisError] = useState(null)
-
-
-    // function fetchUsers() {
-
-
-    //     fetch('https://reqres.in/api/users?page=2').then(res => {
-
-    //         return res.json();
-    //     }).then(data => {
-
-    //         console.log(data.data[0])
-    //         setusers(data.data)
-    //     })
-
-    // }
-
-
-    async function addUser(emp) {
-
-
-
-        console.log("stringfy...", JSON.stringify(emp))
-        const res = await fetch('https://reqres.in/api/users', {
-            method: 'POST',
-            body: JSON.stringify(emp),
-
-            headers: {
-                'Content-Type': "application/json",
-            }
-        })
-        const data = await res.json();
-        toast.success('User added..', {
-            position: toast.POSITION.TOP_CENTER
-        })
-        console.log("res =>", data)
-    }
-
-    async function fetchUsers() {
-
-        setisLoading(true)
-        try {
-            const res = await fetch('https://reqres.in/api/users?page=2')
-            const data = await res.json();
-            setusers(data.data)
-            setisLoading(false)
-
-            console.log(res.status)
-            if (!res.ok) {
-
-                throw new Error('Something went wrong !!!!')
-            }
-
-        } catch (error) {
-
-            setisError(error.message)
-
-
-        }
-    }
+    const [myColor, setMyColor] = useState('blue')
 
 
     return (
-
-        <div>
-            <button className="btn btn-info" onClick={fetchUsers}>FETCH USERS</button>
-            <ToastContainer />
-            <Route path="/" exact>
-                {isLoading && <p>Loading....</p>}
-                {!isLoading && users.length > 0 && <UserList users={users} />}
-                {!isLoading && isError && <p>{isError}</p>}
-
-            </Route>
-            <Route path="/users/:id">
-                <UserDetail />
-            </Route>
-            <Route path="/adduser">
-                <AddUser addUser={addUser} />
-            </Route>
-
-
-
-
-
-        </div>
+        <GlobalInfo.Provider value ={{color:myColor}}>
+            <h1 style={{ color: myColor }}>App js</h1>
+            <Child/>
+        </GlobalInfo.Provider>
 
     )
 }
