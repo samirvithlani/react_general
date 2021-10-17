@@ -21,6 +21,7 @@ import { Child } from './Child';
 import { SearchMovie } from './movie/SearchMovie';
 import { Forms } from './forms/Forms';
 import { Form2 } from './forms/Form2';
+import { DynamicForm } from './forms/DynamicForm';
 
 //add validation...
 
@@ -54,7 +55,7 @@ function App() {
         <div>
             {/* <SearchMovie /> */}
             
-            <Form2 />
+          <DynamicForm/>
         </div>
 
     )
